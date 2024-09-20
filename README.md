@@ -89,6 +89,85 @@ _Примечание к заданию 3_:
 
    - Какие параметры были отправлены в запросе?
 
+ - Какой код состояния был возвращен сервером? `401 Unauthorized`
+   - Какие заголовки были отправлены в ответе? `keep-alive`, `text/plain;charset=UTF-8`, `Thu, 12 Sep 2024 17:18:00 GMT`,
+`nginx/1.24.0 (Ubuntu)`, `chunked`
+
+![image](https://github.com/user-attachments/assets/a7d2dd0f-4bc1-4096-a025-967b54b5edc6)
+
+  - Какой метод HTTP был использован для отправки запроса? `POST`
+
+   - Какие заголовки были отправлены в запросе? 
+
+![image](https://github.com/user-attachments/assets/0d609df8-6a97-4a29-b539-086680bbccfd)
+
+  - Какие параметры были отправлены в запросе?
+
+![image](https://github.com/user-attachments/assets/f6241791-1af6-4393-aa28-a6d49b89d460)
+
+- Какой код состояния был возвращен сервером? `200 OK`
+   - Какие заголовки были отправлены в ответе?
+
+![image](https://github.com/user-attachments/assets/99f23171-ef81-407b-870e-10f079753baa)
+
+
+### Задание №2. Составление HTTP-запросов
+
+`GET
+```http
+GET / HTTP/1.1
+Host: sandbox.com
+User-Agent: Nadulusneac Vladimir
+```
+`POST`
+```http
+POST /cars HTTP/1.1
+Host: sandbox.com
+
+model=Corolla&make=Toyota&year=2020
+```
+`PUT`
+```http
+PUT /cars/1 HTTP/1.1
+Host: sandbox.com
+User-Agent: Nadulusneac Vladimir
+Content-Type: application/json
+{
+    "make": "Toyota",
+    "model": "Corolla",
+    "year": 2021
+}
+```
+
+```http
+HTTP/1.1 201 Created
+Content-Type: application/json
+
+{
+    "status": "success",
+    "car": {
+        "make": "Toyota",
+        "model": "Corolla",
+        "year": 2020
+    }
+}
+
+```
+200 OK - Запрос на получение данных о машине прошел успешно.
+
+201 Created - Новый автомобиль добавлен в базу данных.
+
+400 Bad Request - Запрос неверно сформирован.
+
+401 Unauthorized - Пользователь не предоставил корректные учетные данные.
+
+403 Forbidden - У пользователя нет прав для выполнения данного запроса.
+
+404 Not Found - Запрашиваемого автомобиля не существует в базе данных.
+
+500 Internal Server Error - Сбой базы данных.
+
+
 
 
 
